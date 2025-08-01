@@ -100,7 +100,7 @@ jobs:
   build-for-windows-flutter:
     name: Build Windows
     needs: [build-RustDeskTempTopMostWindow, generate-bridge]
-    runs-on: DESKTOP-CE71U9Q
+    runs-on: ${{ matrix.job.os }}
     strategy:
       fail-fast: false
       matrix:
