@@ -223,6 +223,12 @@ jobs:
           ndk-version: ${{ env.NDK_VERSION }}
           add-to-path: true
 
+      - name: Set Android NDK environment variables
+        shell: bash
+        run: |
+          echo "ANDROID_NDK_HOME=${{ steps.setup-ndk.outputs.ndk-path }}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_ROOT=${{ steps.setup-ndk.outputs.ndk-path }}" >> $GITHUB_ENV
+
       - name: Setup vcpkg with Github Actions binary cache
         uses: lukka/run-vcpkg@v11
         with:
